@@ -1,0 +1,9 @@
+CREATE TABLE rooms (id BIGINT PRIMARY KEY);
+
+CREATE TABLE players (
+    id BIGINT PRIMARY KEY,
+    room_id BIGINT NOT NULL REFERENCES rooms(id)
+);
+
+ALTER TABLE rooms
+    ADD COLUMN leader_id BIGINT NULL REFERENCES players(id);
